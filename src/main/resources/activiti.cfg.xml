@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="config" />
+
+    <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+        <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://localhost:3306/testdb?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8"></property>
+        <property name="jdbcUsername" value="root"></property>
+        <property name="jdbcPassword" value="0000"></property>
+        <!--
+			创建表的策略
+		 -->
+        <property name="databaseSchemaUpdate" value="true"></property>
+    </bean>
+</beans>
